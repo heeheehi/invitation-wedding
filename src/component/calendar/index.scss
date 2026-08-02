@@ -32,7 +32,7 @@
         > div.heart {
           width: 50%;
           height: 50%;
-          background: var(--theme-bg-color);
+          background: var(--dark-grey-color);
           top: 35%;
           left: 25%;
           position: absolute;
@@ -44,9 +44,9 @@
             height: 100%;
             position: absolute;
             top: -50%;
-            left: 0%;
+            left: 0;
             border-radius: 50%;
-            background: var(--theme-bg-color);
+            background: var(--dark-grey-color);
           }
           &::after {
             content: "";
@@ -55,7 +55,7 @@
             position: absolute;
             left: -50%;
             border-radius: 50%;
-            background: var(--theme-bg-color);
+            background: var(--dark-grey-color);
           }
         }
       }

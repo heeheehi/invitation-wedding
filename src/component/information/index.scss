@@ -1,21 +1,22 @@
 .information {
-  .info-card {
-    margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
-    padding: 2rem 1rem 1rem 1rem;
+  // 테두리 상자 위에 알약 라벨을 걸치던 구조를 걷어내고,
+  // 얇은 구분선 아래에 내용이 오는 조용한 섹션 라벨로 바꿨습니다.
 
-    position: relative;
-    border: 1px solid var(--alt-color);
-    border-radius: 0.5rem;
+  .info-card {
+    margin-top: 2.2rem;
+    margin-bottom: 0.5rem;
+
     .label {
-      position: absolute;
-      left: 50%;
-      top: -1rem;
-      transform: translateX(-50%);
-      padding: 0.5rem 2rem 0.5rem 2rem;
-      border-radius: 1rem;
-      background-color: var(--alt-bg-color);
-      border: 1px solid var(--alt-color);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      color: var(--alt-color);
+      padding-bottom: 0.7rem;
+      margin-bottom: 1.1rem;
+      border-bottom: 1px solid var(--light-grey-color);
+    }
+    .row {
+      display: flex;
+      gap: 1rem;
     }
   }
   .content {
@@ -132,7 +133,7 @@
           margin-bottom: 0.5rem;
           border: 1px solid var(--light-grey-color);
           border-radius: 0.3rem;
-          font-family: "MapoGoldenPier";
+          font-family: "Noto Sans KR", sans-serif;
           font-size: 0.8rem;
         }
       }

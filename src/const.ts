@@ -14,7 +14,7 @@ export { dayjs }
  * 예식 일시 설정
  * Asia/Seoul 타임존 기준으로 설정합니다.
  */
-export const WEDDING_DATE = dayjs.tz("2024-08-24 13:00", "Asia/Seoul")
+export const WEDDING_DATE = dayjs.tz("2026-12-27 11:30", "Asia/Seoul")
 
 /**
  * 예식 일시 포맷
@@ -27,17 +27,17 @@ export const WEDDING_DATE_FORMAT = `YYYY년 MMMM D일 dddd A h시${WEDDING_DATE.
  * 예식 당월 휴무일 (달력 표시용)
  * 예: 8월 15일 광복절
  */
-export const HOLIDAYS = [15]
+export const HOLIDAYS = [25]
 
 /**
  * 예식 장소 명칭
  */
-export const LOCATION = "서울대학교 연구공원 웨딩홀"
+export const LOCATION = "세인트메리스 강남"
 
 /**
  * 예식 장소 상세 주소
  */
-export const LOCATION_ADDRESS = "서울시 관악구 관악로 1, 연구공원 본관 1층"
+export const LOCATION_ADDRESS = "서울 서초구 남부순환로289길 5 (5F)"
 
 /**
  * 카카오톡 공유 시 사용할 위치 정보 주소
@@ -59,7 +59,7 @@ export const WEDDING_HALL_POSITION = [126.9594982, 37.4657134]
  * 네이버 지도 장소 ID (NMAP_PLACE_ID)
  * 네이버 지도에서 장소 검색 후 URL의 숫자 부분을 입력합니다.
  */
-export const NMAP_PLACE_ID = 13321741
+export const NMAP_PLACE_ID = 1428180390
 
 /**
  * 카카오 지도 장소 ID (KMAP_PLACE_ID)
@@ -68,11 +68,11 @@ export const NMAP_PLACE_ID = 13321741
 export const KMAP_PLACE_ID = 8634826
 
 // 신부 정보 설정
-export const BRIDE_FULLNAME = "정지원"
-export const BRIDE_FIRSTNAME = "지원"
+export const BRIDE_FULLNAME = "장경희"
+export const BRIDE_FIRSTNAME = "경희"
 export const BRIDE_TITLE = "장녀"
-export const BRIDE_FATHER = "정상원"
-export const BRIDE_MOTHER = "박윤정"
+export const BRIDE_FATHER = "장호열"
+export const BRIDE_MOTHER = "정영자"
 
 /**
  * 신부측 연락처 및 계좌 정보
@@ -81,29 +81,29 @@ export const BRIDE_INFO = [
   {
     relation: "신부",
     name: BRIDE_FULLNAME,
-    phone: "010-0000-0000",
-    account: "우리은행 0000000000000",
+    phone: "010-7300-8569",
+    account: "신한은행 110412093082",
   },
   {
     relation: "신부 아버지",
     name: BRIDE_FATHER,
-    phone: "010-0000-0000",
-    account: "하나은행 00000000000",
+    phone: "",
+    account: "",
   },
   {
     relation: "신부 어머니",
     name: BRIDE_MOTHER,
-    phone: "010-0000-0000",
-    account: "하나은행 00000000000000",
+    phone: "010-9611-8569",
+    account: "농협 301-0240-0000-71",
   },
 ]
 
 // 신랑 정보 설정
-export const GROOM_FULLNAME = "남주호"
-export const GROOM_FIRSTNAME = "주호"
-export const GROOM_TITLE = "차남"
-export const GROOM_FATHER = "남현태"
-export const GROOM_MOTHER = "김현영"
+export const GROOM_FULLNAME = "박준호"
+export const GROOM_FIRSTNAME = "준호"
+export const GROOM_TITLE = "장남"
+export const GROOM_FATHER = "박형도"
+export const GROOM_MOTHER = "정은순"
 
 /**
  * 신랑측 연락처 및 계좌 정보

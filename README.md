@@ -48,7 +48,7 @@ npm install
 환경변수 샘플은 `.env.example` 파일에 저장되어 있습니다. 이 파일을 복사하여 `.env` 파일을 생성하고 각 환경변수를 수정합니다.
 
 ```bash
-cp .env.example .env
+cp .env .env
 ```
 
 - `VITE_NAVER_MAP_CLIENT_ID`

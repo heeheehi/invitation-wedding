@@ -33,16 +33,16 @@ export const Invitation = () => {
         <div className="break" />
 
         {/* 초대 문구 */}
-        <div className="content">싱그러운 여름 향기 가득한 날</div>
-        <div className="content">소중한 분들을 모시고</div>
-        <div className="content">사랑의 약속을 하려고 합니다.</div>
+        <div className="content">가장 추운 계절에</div>
+        <div className="content">가장 따뜻한 약속을</div>
+        <div className="content">드리려 합니다.</div>
         <div className="break" />
-        <div className="content">햇살이 뜨거울 땐 가려주고,</div>
-        <div className="content">비가 오면 우산이 되어주는</div>
+        <div className="content">바람이 매서운 날에도</div>
+        <div className="content">서로의 온기가 되는</div>
         <div className="content">부부가 되겠습니다.</div>
         <div className="break" />
-        <div className="content">기쁜날 함께 하시어</div>
-        <div className="content">저희의 앞날을 축복해 주세요.</div>
+        <div className="content">귀한 걸음 하시어</div>
+        <div className="content">저희의 시작을 축복해 주세요.</div>
 
         <div className="break" />
 
@@ -125,18 +125,22 @@ export const Invitation = () => {
                   <div className="relation">{relation}</div>
                   <div>{name}</div>
                   <div>
-                    <PhoneIcon
-                      className="flip icon"
-                      onClick={() => {
-                        window.open(`tel:${phone}`, "_self")
-                      }}
-                    />
-                    <EnvelopeIcon
-                      className="icon"
-                      onClick={() => {
-                        window.open(`sms:${phone}`, "_self")
-                      }}
-                    />
+                    {phone.length != 0 && (
+                      <PhoneIcon
+                        className="flip icon"
+                        onClick={() => {
+                          window.open(`tel:${phone}`, "_self")
+                        }}
+                      />
+                    )}
+                    {phone.length != 0 && (
+                      <EnvelopeIcon
+                        className="icon"
+                        onClick={() => {
+                          window.open(`sms:${phone}`, "_self")
+                        }}
+                      />
+                    )}
                   </div>
                 </Fragment>
               ),

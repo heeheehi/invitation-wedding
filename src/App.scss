@@ -11,20 +11,30 @@
 @use "./component/shareButton";
 
 // 카드가 넓어질 수 있는 한계. 이 폭에 닿으면 그 이상은 가운데 정렬만 됩니다.
-$card-max-width: 500px;
+$card-max-width: 430px;
 
 :root {
-  // 무채색 팔레트: 아주 옅은 웜 그레이 계열로 통일하고, 색은 사진에만 맡깁니다.
-  --theme-color: #5f5d58; // 포인트: 섹션 제목, 아이콘, D-day
-  --theme-bg-color: #fff; // 페이지 배경, 달력의 예식일 하트
-  --alt-color: #767470; // 보조: 버튼, 강조 테두리
-  --alt-bg-color: #f8f7f5; // 보조 배경 블록
-  --dark-color: #33322f; // 본문 텍스트
-  --dark-grey-color: #d5d2cd; // 구분선
-  --light-grey-color: #edeae6; // 옅은 구분선, 테이블 헤더
-  --light-color: #ffffff; // 카드 배경
+  // 섹션 좌우/세로 여백. 커버 사진의 풀블리드와 구분선 들여쓰기가 모두 이 값을
+  // 되짚어 쓰기 때문에 컴포넌트에서도 보이도록 CSS 변수로 둡니다.
+  --section-inset: 1.7rem;
+  --section-gap: 3.2rem;
+
+  // 딥 네이비 포인트 + 골드 영문 라벨. 나머지는 뉴트럴 그레이로 눌러
+  // 색은 사진과 포인트 두 곳에만 남깁니다.
+  --theme-color: #304d5e; // 포인트: 예식일, 아이콘, D-day
+  --accent-color: #b09a74; // 영문 섹션 라벨(골드)
+  --page-bg-color: #e2e2e2; // 카드 바깥 페이지 배경
+  --theme-bg-color: #ffffff; // 카드 배경
+  --alt-color: #304d5e; // 버튼 테두리·글자
+  --alt-bg-color: #fbfbfa; // 보조 배경 블록
+  --dark-color: #2e2e2e; // 본문 텍스트
+  --strong-color: #1a1a1a; // 이름 등 강조 텍스트
+  --muted-color: #8a8a8a; // 보조 설명 텍스트
+  --dark-grey-color: #d8d8d8; // 아이콘 선, 옅은 테두리
+  --light-grey-color: #eeeeee; // 구분선
+  --light-color: #ffffff; // 모달·푸터 배경
   --white-color: #ffffff;
-  --red-color: #bd5c53; // 공휴일 표시(기능색) — 채도를 낮춘 벽돌색
+  --red-color: #c05a5a; // 공휴일 표시(기능색) — 채도를 낮춘 붉은색
 
   font-family: "Noto Sans KR", sans-serif;
   // 카드 폭에 비례해 글자도 같이 줄어듭니다($card-max-width의 4% = 20px에서 상한).
@@ -39,10 +49,14 @@ $card-max-width: 500px;
 
 $colors: (
   theme-color: var(--theme-color),
+  accent-color: var(--accent-color),
+  page-bg-color: var(--page-bg-color),
   theme-bg-color: var(--theme-bg-color),
   alt-color: var(--alt-color),
   alt-bg-color: var(--alt-bg-color),
   dark-color: var(--dark-color),
+  strong-color: var(--strong-color),
+  muted-color: var(--muted-color),
   dark-grey-color: var(--dark-grey-color),
   light-grey-color: var(--light-grey-color),
   light-color: var(--light-color),
@@ -103,7 +117,7 @@ body {
 }
 
 .background {
-  background-color: var(--theme-bg-color);
+  background-color: var(--page-bg-color);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -118,15 +132,32 @@ body {
     max-width: $card-max-width;
     text-align: center;
 
+    // 회색 페이지 위에 떠 있는 한 장의 종이. 배경 꽃잎은 이 카드 바깥에서만 보입니다.
+    background-color: var(--theme-bg-color);
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 3;
+
     .card-group {
       position: relative;
 
       .card {
-        padding: 1rem;
+        padding: var(--section-gap) var(--section-inset);
         display: flex;
         flex-direction: column;
         justify-content: center;
         position: relative;
+
+        // 섹션 사이를 가르는 얇은 선. 좌우는 본문과 같은 만큼 안쪽으로 들입니다.
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: var(--section-inset);
+          right: var(--section-inset);
+          height: 1px;
+          background-color: var(--light-grey-color);
+        }
 
         opacity: 0;
         &.lazy-active {
@@ -143,10 +174,15 @@ body {
       }
     }
 
+    // 첫 섹션(커버) 위에는 그을 선이 없습니다.
+    .card-group:first-child .card:first-child::before {
+      display: none;
+    }
+
     .footer {
       position: relative;
-      background-color: var(--light-color);
-      padding: 1rem;
+      background-color: var(--theme-color);
+      padding: 2.7rem var(--section-inset) 2.9rem;
       opacity: 0;
       &.lazy-active {
         animation-name: lazy-fade-in;
@@ -163,12 +199,22 @@ body {
   }
 }
 
+// 각 섹션 머리의 영문 라벨. 세리프 + 넓은 자간의 골드 소문자 라벨로,
+// 제목이라기보다 섹션을 조용히 가리키는 표지에 가깝습니다.
 h2 {
   font-size: 1.5rem;
   color: var(--theme-color);
   font-weight: normal;
   &.english {
-    font-family: "Noto Sans KR", sans-serif;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 300;
+    font-size: 0.62rem;
+    letter-spacing: 0.3em;
+    // 자간이 오른쪽에만 붙어 생기는 쏠림을 상쇄합니다.
+    text-indent: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    margin: 0;
   }
 }
 

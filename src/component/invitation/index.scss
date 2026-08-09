@@ -1,21 +1,42 @@
 .invitation {
+  // 넉넉한 행간으로 문장 사이에 숨을 두는 것이 이 섹션의 인상을 결정합니다.
   .content {
-    margin-top: 0.8rem;
-    margin-bottom: 0.8rem;
-    font-size: 0.9rem;
+    margin: 0;
+    font-size: 0.725rem;
+    font-weight: 300;
+    line-height: 2.2;
+    color: var(--dark-color);
+    text-wrap: pretty;
+
+    // 라벨과 본문 사이, 그리고 문단과 문단 사이의 간격
+    &:first-of-type {
+      margin-top: 1.7rem;
+    }
+    & + .content {
+      margin-top: 0.6rem;
+    }
+  }
+
+  // 본문과 혼주 줄 사이 간격(App.scss의 div.break 1rem에 더해 2rem을 만듭니다)
+  .break {
+    height: 1rem;
   }
 
   .name {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
+    margin: 0 0 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--strong-color);
+
     .relation {
-      font-size: 0.75rem;
-      opacity: 0.7;
+      font-size: 0.625rem;
+      font-weight: 300;
+      color: var(--muted-color);
 
       .relation-name {
         display: inline-block;
         min-width: 2em;
+        color: inherit;
       }
     }
   }

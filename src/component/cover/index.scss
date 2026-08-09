@@ -4,10 +4,11 @@
 
   .image-wrapper {
     position: relative;
-    // 카드 기본 여백(App.scss의 .card padding: 1rem)을 상쇄해 사진을 가장자리까지 채웁니다.
-    margin: -1rem -1rem 0;
+    // 카드 기본 여백(App.scss의 .card padding)을 상쇄해 사진을 가장자리까지 채웁니다.
+    margin: calc(var(--section-gap) * -1) calc(var(--section-inset) * -1) 0;
     aspect-ratio: 5 / 6;
     overflow: visible;
+    background-color: var(--theme-color);
 
     img {
       display: block;
@@ -20,7 +21,7 @@
   // 사진과 아래 여백의 경계에 절반씩 걸쳐지는 실링 왁스 엠블럼
   .wax-seal {
     position: absolute;
-    right: 1.8rem;
+    right: 9%;
     bottom: 0;
     transform: translateY(50%);
     z-index: 1;
@@ -36,14 +37,14 @@
     background:
       radial-gradient(
         circle at 32% 26%,
-        rgba(255, 255, 255, 0.3),
+        rgba(255, 255, 255, 0.28),
         rgba(255, 255, 255, 0) 55%
       ),
-      linear-gradient(150deg, #5c5955 0%, #3b3835 55%, #26241f 100%);
+      linear-gradient(150deg, #486a7d 0%, #304d5e 55%, #223a48 100%);
     box-shadow:
-      0 0.35rem 0.9rem rgba(0, 0, 0, 0.28),
-      inset 0 -0.15rem 0.3rem rgba(0, 0, 0, 0.45),
-      inset 0 0.12rem 0.25rem rgba(255, 255, 255, 0.2);
+      0 0.35rem 0.9rem rgba(20, 40, 55, 0.32),
+      inset 0 -0.15rem 0.3rem rgba(0, 0, 0, 0.4),
+      inset 0 0.12rem 0.25rem rgba(255, 255, 255, 0.22);
 
     // 왁스 도장 테두리의 안쪽 링
     &::after {
@@ -51,8 +52,8 @@
       position: absolute;
       inset: 0.4rem;
       border-radius: inherit;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      box-shadow: inset 0 0 0.4rem rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: inset 0 0 0.4rem rgba(0, 0, 0, 0.3);
     }
 
     // 왁스에 눌러 찍힌 듯한 음각 표현
@@ -60,32 +61,36 @@
       position: relative;
       width: 62%;
       height: 62%;
-      color: rgba(255, 255, 255, 0.82);
-      filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.55));
+      color: rgba(255, 255, 255, 0.86);
+      filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5));
     }
   }
 
   .cover-caption {
-    // 엠블럼이 겹치는 만큼 위쪽 여백을 넉넉히 둡니다.
-    padding: 3.4rem 1rem 1.4rem;
+    // 엠블럼이 절반쯤 걸쳐 내려오는 만큼 위쪽을 비워 둡니다.
+    // 좌우·아래 여백은 카드가 이미 갖고 있어 여기서는 위만 잡습니다.
+    padding-top: 4.6rem;
   }
 
   .names {
     .name {
-      font-size: 1.85rem;
-      line-height: 1.45;
-      letter-spacing: 0.06em;
+      font-size: 1.5rem;
+      font-weight: 400;
+      line-height: 1.55;
+      letter-spacing: 0.03em;
+      color: var(--strong-color);
     }
   }
 
   .info {
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
-    letter-spacing: 0.02em;
-    opacity: 0.6;
+    margin-top: 0.45rem;
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    color: #3a3a3a;
 
     &:first-of-type {
-      margin-top: 1.6rem;
+      margin-top: 1.7rem;
     }
   }
 }

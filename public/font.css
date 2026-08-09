@@ -1,8 +1,13 @@
+/* 영문 섹션 라벨용 세리프. 라틴 문자만 서브셋해 15KB로 줄였습니다. */
 @font-face {
-  font-family: "MapoGoldenPier";
-  src: url("./MapoGoldenPierA.woff") format("woff");
-  font-weight: normal;
+  font-family: "Cormorant Garamond";
   font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src:
+    local("Cormorant Garamond Light"),
+    local("CormorantGaramond-Light"),
+    url("./CormorantGaramond-Light.woff2") format("woff2");
 }
 
 @font-face {
@@ -10,5 +15,5 @@
   src: url("./AlluraRegular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
-

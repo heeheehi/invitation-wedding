@@ -56,9 +56,10 @@ export const Calendar = () => {
   return (
     <LazyDiv className="card calendar">
       <h2 className="english">The Wedding Day</h2>
-      <div className="break" />
       {/* 예식 일시 표시 */}
-      {WEDDING_DATE.format(WEDDING_DATE_FORMAT)}
+      <div className="wedding-datetime">
+        {WEDDING_DATE.format(WEDDING_DATE_FORMAT)}
+      </div>
 
       {/* 달력 영역 */}
       <div className="calendar-wrapper">
@@ -113,7 +114,6 @@ export const Calendar = () => {
               className={classes.length ? classes.join(" ") : undefined}
             >
               <span>{date}</span>
-              {isWeddingDate && <div className="heart" />}
             </div>
           )
         })}

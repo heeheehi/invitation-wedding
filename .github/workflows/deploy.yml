@@ -10,6 +10,11 @@ permissions:
   pages: write
   id-token: write
 
+# 진행 중인 배포는 취소하지 않고, 대기 중인 실행만 최신 것으로 대체합니다.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   deploy:
     environment:
@@ -34,16 +39,22 @@ jobs:
           VITE_SERVER_URL: ${{ vars.VITE_SERVER_URL }}
           VITE_STATIC_ONLY: ${{ vars.VITE_STATIC_ONLY }}
 
-      - name: Use Node.js 22.x
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22.x
+          node-version-file: ".nvmrc"
+          cache: "pnpm"
 
       - name: Install dependencies
-        run: npm install
+        run: pnpm install --frozen-lockfile
 
       - name: Build
-        run: npm run build
+        run: pnpm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

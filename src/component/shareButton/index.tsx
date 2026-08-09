@@ -22,6 +22,15 @@ export const ShareButton = () => {
   const kakao = useKakao()
   return (
     <LazyDiv className="footer share-button">
+      {/* 맺음말: 두 사람의 이름으로 초대장을 닫습니다. */}
+      <div className="closing">
+        <div className="closing-label">두 사람 결혼합니다</div>
+        <div className="closing-names">
+          <span>{GROOM_FULLNAME}</span>
+          <span className="rule" />
+          <span>{BRIDE_FULLNAME}</span>
+        </div>
+      </div>
       <button
         className="ktalk-share"
         onClick={() => {

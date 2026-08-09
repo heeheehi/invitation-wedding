@@ -30,19 +30,18 @@ export const Invitation = () => {
       <LazyDiv className="card invitation">
         <h2 className="english">Invitation</h2>
 
-        <div className="break" />
-
         {/* 초대 문구 */}
-        <div className="content">가장 추운 계절에</div>
-        <div className="content">가장 따뜻한 약속을</div>
-        <div className="content">드리려 합니다.</div>
-        <div className="break" />
-        <div className="content">바람이 매서운 날에도</div>
-        <div className="content">서로의 온기가 되는</div>
-        <div className="content">부부가 되겠습니다.</div>
-        <div className="break" />
-        <div className="content">귀한 걸음 하시어</div>
-        <div className="content">저희의 시작을 축복해 주세요.</div>
+        <div className="content">
+          가장 추운 계절에
+          <br />
+          가장 따뜻한 약속을 드리려 합니다.
+        </div>
+        <div className="content">
+          바람이 매서운 날에도
+          <br />
+          서로의 온기가 되는 부부가 되겠습니다.
+        </div>
+        <div className="content">귀한 걸음 하시어<br/>저희의 시작을 축복해 주세요.</div>
 
         <div className="break" />
 

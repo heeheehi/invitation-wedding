@@ -21,7 +21,7 @@ export const WEDDING_DATE = dayjs.tz("2026-12-27 11:30", "Asia/Seoul")
  * 분이 0이면 분을 생략하고, 그 외에는 표시합니다.
  * 예: 2024년 8월 24일 토요일 오후 1시
  */
-export const WEDDING_DATE_FORMAT = `YYYY년 MMMM D일 dddd A h시${WEDDING_DATE.minute() === 0 ? "" : " m분"}`
+export const WEDDING_DATE_FORMAT = `YYYY년 MMMM D일\nA h시${WEDDING_DATE.minute() === 0 ? "" : " m분"}`
 
 /**
  * 예식 당월 휴무일 (달력 표시용)

@@ -5,9 +5,8 @@ import {
   WEDDING_DATE,
   WEDDING_DATE_FORMAT,
 } from "../../const"
-import { COVER_IMAGE } from "../../images"
+import { COVER_IMAGE, WAX_SEAL_IMAGE } from "../../images"
 import { LazyDiv } from "../lazyDiv"
-import LilyIcon from "../../icons/lily-icon.svg?react"
 
 /**
  * 초대장의 메인 커버 섹션입니다.
@@ -23,9 +22,7 @@ export const Cover = () => {
       <div className="image-wrapper">
         <img src={COVER_IMAGE} alt="신랑 신부" />
         {/* 사진 하단 경계에 걸치는 실링 왁스 엠블럼 */}
-        <div className="wax-seal">
-          <LilyIcon />
-        </div>
+        <img className="wax-seal" src={WAX_SEAL_IMAGE} alt="" />
       </div>
       {/* 이름 및 예식 정보 */}
       <div className="cover-caption">

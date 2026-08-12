@@ -254,7 +254,7 @@ const WriteGuestBookModal = ({
         </div>
       </div>
       <div className="content">
-        이름
+        <p>이름</p>
         <input
           disabled={loading}
           type="text"
@@ -264,7 +264,7 @@ const WriteGuestBookModal = ({
           }}
           maxLength={RULES.name.maxLength}
         />
-        내용
+        <p>내용</p>
         <textarea
           disabled={loading}
           placeholder="축하 메세지를 100자 이내로 입력해주세요."
@@ -273,7 +273,7 @@ const WriteGuestBookModal = ({
           }}
           maxLength={RULES.content.maxLength}
         />
-        비밀번호
+        <p>비밀번호</p>
         <input
           disabled={loading}
           type="password"
@@ -291,7 +291,7 @@ const WriteGuestBookModal = ({
         <Button
           buttonStyle="style2"
           type="button"
-          className="bg-light-grey-color text-dark-color"
+          className="text-dark-color"
           onClick={onClose}
         >
           닫기
@@ -432,7 +432,7 @@ const GuestBookListModal = ({
       <div className="footer">
         <Button
           buttonStyle="style2"
-          className="bg-light-grey-color text-dark-color"
+          className="text-dark-color"
           onClick={onClose}
         >
           닫기
@@ -533,7 +533,7 @@ const DeleteGuestBookModal = ({
         <Button
           buttonStyle="style2"
           type="button"
-          className="bg-light-grey-color text-dark-color"
+          className="text-dark-color"
           onClick={onCancel}
         >
           닫기

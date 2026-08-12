@@ -136,7 +136,7 @@
           padding: 0.5rem;
           margin-bottom: 0.5rem;
           border: 1px solid var(--light-grey-color);
-          border-radius: 0.3rem;
+          border-radius: 10px;
           font-family: "Noto Sans KR", sans-serif;
           font-size: 0.8rem;
         }
@@ -175,8 +175,7 @@
       border-bottom: 1px dotted var(--dark-grey-color);
     }
     .wedding-info {
-      padding-top: 1.5rem;
-      padding-left: 2rem;
+      padding-top: 1rem;
       line-height: 1.5rem;
       svg {
         width: 0.8rem;

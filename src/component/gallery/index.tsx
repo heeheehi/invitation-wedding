@@ -433,7 +433,7 @@ export const Gallery = () => {
         <div className="footer">
           <Button
             buttonStyle="style2"
-            className="bg-light-grey-color text-dark-color"
+            className="text-dark-color"
             onClick={() => modalState[1](false)}
           >
             닫기

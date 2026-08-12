@@ -10,7 +10,8 @@
     overflow: visible;
     background-color: var(--theme-color);
 
-    img {
+    // 커버 사진만 꽉 채웁니다. (왁스 엠블럼은 아래에서 따로 잡습니다)
+    img:not(.wax-seal) {
       display: block;
       width: 100%;
       height: 100%;
@@ -26,44 +27,11 @@
     transform: translateY(50%);
     z-index: 1;
 
+    display: block;
     width: 5.6rem;
-    height: 5.6rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    // 손으로 찍은 왁스처럼 살짝 불규칙한 원형
-    border-radius: 49% 51% 52% 48% / 51% 48% 52% 49%;
-    background:
-      radial-gradient(
-        circle at 32% 26%,
-        rgba(255, 255, 255, 0.28),
-        rgba(255, 255, 255, 0) 55%
-      ),
-      linear-gradient(150deg, #486a7d 0%, #304d5e 55%, #223a48 100%);
-    box-shadow:
-      0 0.35rem 0.9rem rgba(20, 40, 55, 0.32),
-      inset 0 -0.15rem 0.3rem rgba(0, 0, 0, 0.4),
-      inset 0 0.12rem 0.25rem rgba(255, 255, 255, 0.22);
-
-    // 왁스 도장 테두리의 안쪽 링
-    &::after {
-      content: "";
-      position: absolute;
-      inset: 0.4rem;
-      border-radius: inherit;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: inset 0 0 0.4rem rgba(0, 0, 0, 0.3);
-    }
-
-    // 왁스에 눌러 찍힌 듯한 음각 표현
-    svg {
-      position: relative;
-      width: 62%;
-      height: 62%;
-      color: rgba(255, 255, 255, 0.86);
-      filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5));
-    }
+    height: auto;
+    // PNG 자체가 왁스의 불규칙한 가장자리를 알파로 갖고 있어 그림자만 얹습니다.
+    filter: drop-shadow(0 0.35rem 0.9rem rgba(20, 40, 55, 0.32));
   }
 
   .cover-caption {

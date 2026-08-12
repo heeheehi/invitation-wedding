@@ -96,11 +96,13 @@ export const AttendanceInfo = () => {
             정성껏 준비하겠습니다.
           </div>
           <div className="wedding-info">
-            <HeartIcon /> 신랑 {GROOM_FULLNAME} & 신부 {BRIDE_FULLNAME}
+            <HeartIcon style={{ marginRight: "0.5rem" }} /> 신랑{" "}
+            {GROOM_FULLNAME} & 신부 {BRIDE_FULLNAME}
             <br />
-            <CalendarIcon /> {WEDDING_DATE.format(WEDDING_DATE_FORMAT)}
+            <CalendarIcon style={{ marginRight: "0.5rem" }} />{" "}
+            {WEDDING_DATE.format(WEDDING_DATE_FORMAT)}
             <br />
-            <MarkerIcon /> {LOCATION}
+            <MarkerIcon style={{ marginRight: "0.5rem" }} /> {LOCATION}
           </div>
         </div>
         <div className="footer">
@@ -115,7 +117,7 @@ export const AttendanceInfo = () => {
           </Button>
           <Button
             buttonStyle="style2"
-            className="bg-light-grey-color text-dark-color"
+            className="text-dark-color"
             onClick={() => {
               attendanceInfoModalState[1](false)
             }}
@@ -349,7 +351,7 @@ const AttendanceFormModal = ({ onClose }: { onClose: () => void }) => {
         <Button
           buttonStyle="style2"
           type="button"
-          className="bg-light-grey-color text-dark-color"
+          className="text-dark-color"
           onClick={onClose}
         >
           닫기

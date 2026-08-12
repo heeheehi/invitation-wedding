@@ -11,11 +11,17 @@ import image9 from "./image9.jpg"
 import image10 from "./image10.jpg"
 import image11 from "./image11.jpg"
 import image12 from "./image12.jpg"
+import waxSeal from "./wax-seal.png"
 
 /**
  * 메인 커버 이미지
  */
 export const COVER_IMAGE = coverImage
+
+/**
+ * 커버 사진 경계에 걸쳐지는 실링 왁스 엠블럼 (은방울꽃)
+ */
+export const WAX_SEAL_IMAGE = waxSeal
 
 /**
  * 갤러리에 표시될 이미지 목록

@@ -14,7 +14,7 @@ export { dayjs }
  * 예식 일시 설정
  * Asia/Seoul 타임존 기준으로 설정합니다.
  */
-export const WEDDING_DATE = dayjs.tz("2026-12-27 11:30", "Asia/Seoul")
+export const WEDDING_DATE = dayjs.tz("2026-12-27 12:00", "Asia/Seoul")
 
 /**
  * 예식 일시 포맷
@@ -102,7 +102,7 @@ export const BRIDE_INFO = [
 export const GROOM_FULLNAME = "박준호"
 export const GROOM_FIRSTNAME = "준호"
 export const GROOM_TITLE = "장남"
-export const GROOM_FATHER = "박형도"
+export const GROOM_FATHER = "박형두"
 export const GROOM_MOTHER = "정은순"
 
 /**
@@ -112,19 +112,19 @@ export const GROOM_INFO = [
   {
     relation: "신랑",
     name: GROOM_FULLNAME,
-    phone: "010-0000-0000",
-    account: "하나은행 00000000000000",
+    phone: "010-3974-7582",
+    account: "신한은행 110-345-044057",
   },
   {
     relation: "신랑 아버지",
     name: GROOM_FATHER,
-    phone: "010-0000-0000",
-    account: "신한은행 000000000000",
+    phone: "010-5605-7582",
+    account: "국민은행 774-21-0294-024",
   },
   {
     relation: "신랑 어머니",
     name: GROOM_MOTHER,
-    phone: "010-0000-0000",
-    account: "국민은행 000000000000",
+    phone: "010-7675-7582",
+    account: "우리은행 1002-734-275886",
   },
 ]

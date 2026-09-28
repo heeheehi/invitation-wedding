@@ -8,6 +8,8 @@
   width: 100%;
   height: 100%;
   z-index: 2;
+  // 꽃잎 캔버스가 화면 전체를 덮으므로 클릭이 아래 콘텐츠로 전달되도록 합니다.
+  pointer-events: none;
 
   // 꽃잎 이미지(petal.png)가 분홍색이라 무채색 팔레트에 맞춰 탈색합니다.
   canvas {

@@ -40,34 +40,8 @@
       border-bottom: 1px solid var(--dark-grey-color);
     }
   }
-  // 본문과 같은 가는 글씨로 맞춥니다.
   .content {
-    padding: 0 0.7rem 0.7rem 0.7rem;
-    font-size: 0.7rem;
-    font-weight: 300;
-    line-height: 1.6;
-    color: var(--strong-color);
-
-    .account-info {
-      margin: 0.9rem 0;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      .name {
-        margin-bottom: 0.1rem;
-        .relation {
-          opacity: 0.7;
-        }
-      }
-      .copy-button {
-        width: auto;
-        min-height: 0;
-        padding: 0.4rem 0.7rem;
-        margin: 0;
-        flex-shrink: 0;
-      }
-    }
+    padding: 0.3rem 0.7rem 0.8rem;
   }
 
   .footer {

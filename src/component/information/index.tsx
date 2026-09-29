@@ -1,10 +1,11 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { BRIDE_INFO, GROOM_INFO } from "../../const"
 import { STATIC_ONLY } from "../../env"
 import { Button } from "../button"
 import { LazyDiv } from "../lazyDiv"
 import { Modal } from "../modal"
 import { AttendanceInfo } from "./attendance"
+import CopyIcon from "../../icons/copy-line-icon.svg?react"
 
 /**
  * 식사 정보 안내 컴포넌트입니다.
@@ -32,6 +33,16 @@ export const Information1 = () => {
 export const Information2 = () => {
   const donationModalState = useState(false)
   const [isGroom, setIsGroom] = useState(true)
+  const [toast, setToast] = useState<string | null>(null)
+  const toastTimeout = useRef<number | null>(null)
+
+  const showToast = (message: string) => {
+    setToast(message)
+    if (toastTimeout.current !== null) {
+      clearTimeout(toastTimeout.current)
+    }
+    toastTimeout.current = window.setTimeout(() => setToast(null), 1800)
+  }
 
   return (
     <>
@@ -72,32 +83,32 @@ export const Information2 = () => {
           {(isGroom ? GROOM_INFO : BRIDE_INFO)
             .filter(({ account }) => !!account)
             .map(({ relation, name, account }) => (
-              <div className="account-info" key={relation}>
-                <div>
-                  <div className="name">
-                    <span className="relation">{relation}</span> {name}
-                  </div>
-                  <div>{account}</div>
+              <div className="person-row" key={relation}>
+                <div className="person">
+                  <div className="relation">{relation}</div>
+                  <div className="name">{name}</div>
                 </div>
-                <Button
-                  className="copy-button"
+                {/* 계좌번호를 누르면 복사됩니다 */}
+                <button
+                  className="account-copy"
+                  aria-label={`${name} 계좌번호 복사하기`}
                   onClick={async () => {
-                    if (account) {
-                      try {
-                        // 계좌번호 복사 기능
-                        await navigator.clipboard.writeText(account)
-                        alert(account + "\n복사되었습니다.")
-                      } catch {
-                        alert("복사에 실패했습니다.")
-                      }
+                    try {
+                      await navigator.clipboard.writeText(account)
+                      showToast("계좌번호가 복사되었습니다")
+                    } catch {
+                      showToast("복사에 실패했습니다")
                     }
                   }}
                 >
-                  복사하기
-                </Button>
+                  {account}
+                  <CopyIcon />
+                </button>
               </div>
             ))}
         </div>
+        {/* 복사 결과 안내 (잠시 보였다가 사라집니다) */}
+        {toast && <div className="copy-toast">{toast}</div>}
         <div className="footer">
           <Button
             buttonStyle="style2"

@@ -80,3 +80,108 @@
     }
   }
 }
+
+// 연락처·계좌 모달이 함께 쓰는 사람 목록 행.
+// 옅은 카드 한 장에 관계(작게)/이름을 쌓고, 오른쪽에 동작을 둡니다.
+.modal {
+  .person-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 0.4rem;
+    padding: 0.55rem 0.7rem;
+    border-radius: 0.5rem;
+    background-color: var(--alt-bg-color);
+    border: 1px solid var(--light-grey-color);
+
+    .person {
+      line-height: 1.5;
+      .relation {
+        font-size: 0.5rem;
+        font-weight: 300;
+        color: var(--muted-color);
+      }
+      .name {
+        font-size: 0.7rem;
+        font-weight: 400;
+        color: var(--strong-color);
+      }
+    }
+
+    .actions {
+      display: flex;
+      gap: 0.4rem;
+      flex-shrink: 0;
+    }
+  }
+
+  // 옅게 채운 원 안에 흰 선 아이콘.
+  .icon-button {
+    position: relative;
+    z-index: 3;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50%;
+    background-color: #8fa3ae;
+    color: var(--white-color);
+    transition: background-color 0.2s ease;
+
+    svg {
+      width: 0.75rem;
+      height: 0.75rem;
+      stroke-width: 1.8;
+    }
+
+    &:active {
+      background-color: var(--theme-color);
+    }
+  }
+
+  // 계좌번호 + 작은 복사 아이콘. 줄 전체를 눌러도 복사됩니다.
+  .account-copy {
+    position: relative;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.2rem 0;
+    background: none;
+    font-family: inherit;
+    font-size: 0.65rem;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    color: var(--dark-color);
+    text-align: right;
+
+    svg {
+      width: 0.7rem;
+      height: 0.7rem;
+      flex-shrink: 0;
+      color: var(--muted-color);
+    }
+
+    &:active {
+      color: var(--theme-color);
+    }
+  }
+
+  .copy-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 2.5rem;
+    transform: translateX(-50%);
+    z-index: 10;
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    background-color: rgba(26, 26, 26, 0.85);
+    color: var(--white-color);
+    font-size: 0.6rem;
+    font-weight: 300;
+    white-space: nowrap;
+    animation: modal-fade-in 0.2s ease;
+  }
+}

@@ -48,6 +48,8 @@
   .header {
     .title-group {
       text-align: center;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--dark-grey-color);
       .title {
         font-size: 0.9rem;
         font-weight: 400;
@@ -55,42 +57,30 @@
         padding: 0.3rem;
       }
       .subtitle {
-        font-size: 0.65rem;
+        font-size: 0.6rem;
         font-weight: 300;
-        color: #6f6f6f;
+        color: var(--muted-color);
       }
-      padding-bottom: 0.8rem;
-      border-bottom: 1px solid var(--dark-grey-color);
     }
   }
 
-  // 본문과 같은 가는 글씨로 맞춥니다.
   .content {
-    padding: 0.7rem;
-    padding-bottom: 1rem;
-    font-size: 0.7rem;
-    font-weight: 300;
-    color: var(--strong-color);
+    padding: 0.3rem 0.7rem 0.8rem;
 
-    .contact-info {
-      padding: 0.8rem 0.7rem;
-      display: grid;
-      grid-template-columns: 6rem 5rem 1fr;
-      row-gap: 0.7rem;
-      align-items: center;
-
-      .relation {
-        opacity: 0.7;
-      }
-
-      .icon {
-        fill: var(--dark-color);
-        margin: 0 0.4rem;
-        opacity: 0.7;
-        width: 0.85rem;
-        height: 0.85rem;
-        &.flip {
-          transform: scaleX(-1);
+    .contact-group {
+      margin-top: 0.9rem;
+      .group-label {
+        padding-bottom: 0.35rem;
+        margin-bottom: 0.2rem;
+        border-bottom: 1px solid var(--dark-grey-color);
+        font-size: 0.65rem;
+        font-weight: 400;
+        color: var(--strong-color);
+        .english-label {
+          margin-left: 0.2rem;
+          font-size: 0.45rem;
+          letter-spacing: 0.12em;
+          color: var(--accent-color);
         }
       }
     }

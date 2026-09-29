@@ -1,4 +1,3 @@
-import { Fragment } from "react/jsx-runtime"
 import {
   BRIDE_FULLNAME,
   BRIDE_INFO,
@@ -14,8 +13,8 @@ import {
 import { Modal } from "../modal"
 import { Button } from "../button"
 import { LazyDiv } from "../lazyDiv"
-import PhoneIcon from "../../icons/phone-flip-icon.svg?react"
-import EnvelopeIcon from "../../icons/envelope-icon.svg?react"
+import PhoneIcon from "../../icons/phone-line-icon.svg?react"
+import MessageIcon from "../../icons/message-line-icon.svg?react"
 import { useState } from "react"
 
 /**
@@ -41,7 +40,11 @@ export const Invitation = () => {
           <br />
           서로의 온기가 되는 부부가 되겠습니다.
         </div>
-        <div className="content">귀한 걸음 하시어<br/>저희의 시작을 축복해 주세요.</div>
+        <div className="content">
+          귀한 걸음 하시어
+          <br />
+          저희의 시작을 축복해 주세요.
+        </div>
 
         <div className="break" />
 
@@ -89,62 +92,44 @@ export const Invitation = () => {
         </div>
 
         <div className="content">
-          {/* 신랑측 연락처 */}
-          <div className="contact-info">
-            {GROOM_INFO.filter(({ phone }) => !!phone).map(
-              ({ relation, name, phone }) => (
-                <Fragment key={relation}>
-                  <div className="relation">{relation}</div>
-                  <div>{name}</div>
-                  <div>
-                    {/* 전화 걸기 */}
-                    <PhoneIcon
-                      className="flip icon"
-                      onClick={() => {
-                        window.open(`tel:${phone}`, "_self")
-                      }}
-                    />
-                    {/* 문자 보내기 */}
-                    <EnvelopeIcon
-                      className="icon"
-                      onClick={() => {
-                        window.open(`sms:${phone}`, "_self")
-                      }}
-                    />
+          {[
+            { side: "신랑 측", english: "GROOM", people: GROOM_INFO },
+            { side: "신부 측", english: "BRIDE", people: BRIDE_INFO },
+          ].map(({ side, english, people }) => (
+            <div className="contact-group" key={side}>
+              <div className="group-label">
+                {side} <span className="english-label">{english}</span>
+              </div>
+              {people
+                .filter(({ phone }) => !!phone)
+                .map(({ relation, name, phone }) => (
+                  <div className="person-row" key={relation}>
+                    <div className="person">
+                      <div className="relation">{relation}</div>
+                      <div className="name">{name}</div>
+                    </div>
+                    <div className="actions">
+                      {/* 전화 걸기 */}
+                      <a
+                        className="icon-button"
+                        href={`tel:${phone}`}
+                        aria-label={`${name}에게 전화하기`}
+                      >
+                        <PhoneIcon />
+                      </a>
+                      {/* 문자 보내기 */}
+                      <a
+                        className="icon-button"
+                        href={`sms:${phone}`}
+                        aria-label={`${name}에게 문자 보내기`}
+                      >
+                        <MessageIcon />
+                      </a>
+                    </div>
                   </div>
-                </Fragment>
-              ),
-            )}
-          </div>
-          {/* 신부측 연락처 */}
-          <div className="contact-info">
-            {BRIDE_INFO.filter(({ phone }) => !!phone).map(
-              ({ relation, name, phone }) => (
-                <Fragment key={relation}>
-                  <div className="relation">{relation}</div>
-                  <div>{name}</div>
-                  <div>
-                    {phone.length != 0 && (
-                      <PhoneIcon
-                        className="flip icon"
-                        onClick={() => {
-                          window.open(`tel:${phone}`, "_self")
-                        }}
-                      />
-                    )}
-                    {phone.length != 0 && (
-                      <EnvelopeIcon
-                        className="icon"
-                        onClick={() => {
-                          window.open(`sms:${phone}`, "_self")
-                        }}
-                      />
-                    )}
-                  </div>
-                </Fragment>
-              ),
-            )}
-          </div>
+                ))}
+            </div>
+          ))}
         </div>
         <div className="footer">
           <Button

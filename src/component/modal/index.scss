@@ -116,7 +116,7 @@
     }
   }
 
-  // 옅게 채운 원 안에 흰 선 아이콘.
+  // 옅은 세이지 원 안에 초록 선 아이콘.
   .icon-button {
     position: relative;
     z-index: 3;
@@ -127,7 +127,7 @@
     height: 1.6rem;
     border-radius: 50%;
     background-color: var(--icon-bg-color);
-    color: var(--white-color);
+    color: var(--theme-color);
     transition: background-color 0.2s ease;
 
     svg {
@@ -138,6 +138,7 @@
 
     &:active {
       background-color: var(--theme-color);
+      color: var(--white-color);
     }
   }
 

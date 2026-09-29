@@ -2,7 +2,7 @@ import { Map } from "./map"
 import CarIcon from "../../icons/car-icon.svg?react"
 import BusIcon from "../../icons/bus-icon.svg?react"
 import { LazyDiv } from "../lazyDiv"
-import { LOCATION, LOCATION_ADDRESS } from "../../const"
+import { LOCATION, LOCATION_ADDRESS, SHOW_CHARTER_BUS } from "../../const"
 
 /**
  * 오시는 길 정보를 표시하는 컴포넌트입니다.
@@ -47,12 +47,15 @@ export const Location = () => {
             <br />→ <b>방배동래미안타워 정류장</b> 하차 도보 3분
             <br />→ <b>대항병원 정류장</b> 하차 도보 3분
           </div>
-          <div />
-          <div className="content">
-            * 단체 대절 버스 이용 시
-            <br />
-            - 구미역 7시 출발
-          </div>
+          {SHOW_CHARTER_BUS && (
+            <>
+              <div />
+              <div className="content">
+                * 단체 대절 버스 이용 시
+                <br />- 구미역 7시 출발
+              </div>
+            </>
+          )}
         </div>
 
         {/* 자가용 안내 */}

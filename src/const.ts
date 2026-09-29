@@ -67,6 +67,12 @@ export const NMAP_PLACE_ID = 1428180390
  */
 export const KMAP_PLACE_ID = 59391633
 
+/**
+ * 단체 대절 버스 안내 표시 여부
+ * 일정이 확정되면 true로 변경합니다. (문구는 location/index.tsx에 있습니다)
+ */
+export const SHOW_CHARTER_BUS = false
+
 // 신부 정보 설정
 export const BRIDE_FULLNAME = "장경희"
 export const BRIDE_FIRSTNAME = "경희"

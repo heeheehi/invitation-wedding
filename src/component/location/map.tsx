@@ -76,12 +76,22 @@ const NaverMap = () => {
       // 웨딩홀 마커
       new naver.maps.Marker({ position: hall, map })
 
+      // 웨딩홀 이름표 (마커 위)
+      new naver.maps.Marker({
+        position: hall,
+        map,
+        icon: {
+          content: `<div class="map-label venue-label">${LOCATION}</div>`,
+          anchor: new naver.maps.Point(0, 0),
+        },
+      })
+
       // 지하철 출구 이름표
       new naver.maps.Marker({
         position: subwayExit,
         map,
         icon: {
-          content: `<div class="subway-exit-label">${SUBWAY_EXIT_NAME}</div>`,
+          content: `<div class="map-label subway-exit-label">${SUBWAY_EXIT_NAME}</div>`,
           anchor: new naver.maps.Point(0, 0),
         },
       })

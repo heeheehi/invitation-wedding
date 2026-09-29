@@ -69,19 +69,28 @@
       width: 100%;
     }
 
-    // 지도 위 지하철 출구 이름표 (네이버 지도 커스텀 마커)
-    .subway-exit-label {
-      // 지도의 출구 번호 동그라미를 가리지 않도록 오른쪽 위로 비켜 둡니다.
-      transform: translate(-15%, -160%);
+    // 지도 위 이름표 (네이버 지도 커스텀 마커)
+    .map-label {
       padding: 0.2rem 0.5rem;
       border: 1px solid var(--theme-color);
       border-radius: 999px;
-      background-color: var(--white-color);
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
       font-size: 0.7rem;
       font-weight: 500;
-      color: var(--theme-color);
       white-space: nowrap;
+    }
+    // 지하철 출구: 흰 바탕. 출구 번호 동그라미를 가리지 않도록 오른쪽 위로 비켜 둡니다.
+    .subway-exit-label {
+      transform: translate(-15%, -160%);
+      background-color: var(--white-color);
+      color: var(--theme-color);
+    }
+    // 웨딩홀: 초록 바탕으로 목적지를 강조. 마커 핀 위에 두고, 지도 오른쪽 끝에
+    // 가까우므로 왼쪽으로 치우쳐 잘리지 않게 합니다.
+    .venue-label {
+      transform: translate(-75%, calc(-100% - 2.6rem));
+      background-color: var(--theme-color);
+      color: var(--white-color);
     }
   }
 

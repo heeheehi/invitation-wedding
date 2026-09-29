@@ -56,6 +56,13 @@ export const SHARE_ADDRESS_TITLE = LOCATION
 export const WEDDING_HALL_POSITION = [126.9885333, 37.4755755]
 
 /**
+ * 지도에 함께 표시할 가까운 지하철 출구 [경도, 위도]와 이름
+ * 지도는 웨딩홀과 이 출구가 함께 보이도록 자동으로 확대/축소됩니다.
+ */
+export const SUBWAY_EXIT_POSITION = [126.9825211, 37.4768058]
+export const SUBWAY_EXIT_NAME = "사당역 14번 출구"
+
+/**
  * 네이버 지도 장소 ID (NMAP_PLACE_ID)
  * 네이버 지도에서 장소 검색 후 URL의 숫자 부분을 입력합니다.
  */

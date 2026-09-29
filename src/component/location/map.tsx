@@ -9,6 +9,8 @@ import {
   KMAP_PLACE_ID,
   LOCATION,
   NMAP_PLACE_ID,
+  SUBWAY_EXIT_NAME,
+  SUBWAY_EXIT_POSITION,
   WEDDING_HALL_POSITION,
 } from "../../const"
 import { NAVER_MAP_CLIENT_ID } from "../../env"
@@ -53,21 +55,36 @@ const NaverMap = () => {
   useEffect(() => {
     // 네이버 지도 SDK가 로드되면 지도를 초기화합니다.
     if (naver) {
-      const map = new naver.maps.Map(ref.current, {
-        center: new naver.maps.LatLng(
-          WEDDING_HALL_POSITION[1],
-          WEDDING_HALL_POSITION[0],
-        ),
-        zoom: 17,
+      const hall = new naver.maps.LatLng(
+        WEDDING_HALL_POSITION[1],
+        WEDDING_HALL_POSITION[0],
+      )
+      const subwayExit = new naver.maps.LatLng(
+        SUBWAY_EXIT_POSITION[1],
+        SUBWAY_EXIT_POSITION[0],
+      )
+
+      const map = new naver.maps.Map(ref.current, { center: hall, zoom: 16 })
+
+      // 웨딩홀 마커
+      new naver.maps.Marker({ position: hall, map })
+
+      // 지하철 출구 이름표
+      new naver.maps.Marker({
+        position: subwayExit,
+        map,
+        icon: {
+          content: `<div class="subway-exit-label">${SUBWAY_EXIT_NAME}</div>`,
+          anchor: new naver.maps.Point(0, 0),
+        },
       })
 
-      // 마커 추가
-      new naver.maps.Marker({
-        position: new naver.maps.LatLng(
-          WEDDING_HALL_POSITION[1],
-          WEDDING_HALL_POSITION[0],
-        ),
-        map,
+      // 웨딩홀과 지하철 출구가 한 화면에 들어오도록 맞춥니다.
+      map.fitBounds(new naver.maps.LatLngBounds(subwayExit, hall), {
+        top: 50,
+        right: 50,
+        bottom: 50,
+        left: 80,
       })
 
       return () => {

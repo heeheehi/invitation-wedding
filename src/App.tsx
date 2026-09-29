@@ -8,6 +8,7 @@ import { Gallery } from "./component/gallery"
 import { Information } from "./component/information"
 import { LazyDiv } from "./component/lazyDiv"
 import { ShareButton } from "./component/shareButton"
+import { useEffect } from "react"
 
 /**
  * 메인 애플리케이션 컴포넌트입니다.
@@ -16,6 +17,30 @@ import { ShareButton } from "./component/shareButton"
  * @returns {JSX.Element} 애플리케이션 화면
  */
 function App() {
+  // 주소에 #location 같은 앵커가 있으면 해당 섹션으로 이동합니다(카카오톡 공유의 "오시는 길" 버튼).
+  // 화면이 그려진 직후 한 번, 사진이 모두 로드되어 위치가 확정된 뒤 한 번 더 맞춥니다.
+  useEffect(() => {
+    const id = decodeURIComponent(window.location.hash.slice(1))
+    if (!id) return
+
+    const scrollToAnchor = () =>
+      document.getElementById(id)?.scrollIntoView({ block: "start" })
+
+    // 사용자가 직접 스크롤을 시작하면 이후의 자동 이동은 하지 않습니다.
+    const cancel = () => window.removeEventListener("load", scrollToAnchor)
+
+    const timer = window.setTimeout(scrollToAnchor, 100)
+    window.addEventListener("load", scrollToAnchor)
+    window.addEventListener("touchstart", cancel, { once: true })
+    window.addEventListener("wheel", cancel, { once: true })
+    return () => {
+      window.clearTimeout(timer)
+      cancel()
+      window.removeEventListener("touchstart", cancel)
+      window.removeEventListener("wheel", cancel)
+    }
+  }, [])
+
   return (
     <div className="background">
       {/* 배경 애니메이션 효과 (예: 꽃잎 내리기) */}

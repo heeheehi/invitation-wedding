@@ -61,6 +61,13 @@ export const ShareButton = () => {
                   webUrl: pageUrl,
                 },
               },
+              {
+                title: "오시는 길",
+                link: {
+                  mobileWebUrl: pageUrl + "#location",
+                  webUrl: pageUrl + "#location",
+                },
+              },
             ],
           })
         }}

@@ -16,6 +16,7 @@ export const Location = () => {
       {/* 지도 및 주소 섹션 */}
       <LazyDiv className="card location">
         <h2 className="english">Location</h2>
+        <div className="section-title">오시는 길</div>
         <div className="addr">
           {LOCATION}
           <div className="detail">{LOCATION_ADDRESS}</div>
@@ -66,8 +67,7 @@ export const Location = () => {
             네이버 지도, 카카오 네비, 티맵 등 이용
             <br />
             <b>세인트메리스 강남</b> 검색
-            <br />
-            - 3시간 무료 주차 가능. 무료 발렛 제공
+            <br />- 3시간 무료 주차 가능. 무료 발렛 제공
             <br />
             (주차장 이용 시 웨딩홀과 바로 연결)
           </div>

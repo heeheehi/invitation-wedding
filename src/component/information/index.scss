@@ -3,7 +3,7 @@
   .info-card {
     margin-top: 1.5rem;
     padding: 1rem 0.9rem;
-    border: 1px solid #ececec;
+    border: 1px solid var(--light-grey-color);
     border-radius: 0.7rem;
     text-align: left;
 
@@ -21,9 +21,9 @@
   }
   .content {
     line-height: 1.9;
-    font-size: 0.625rem;
-    font-weight: 300;
-    color: #6f6f6f;
+    font-size: 0.68rem;
+    font-weight: 400;
+    color: var(--body-color);
   }
 }
 

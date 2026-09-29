@@ -39,7 +39,7 @@ button.button {
 
     &:hover,
     &:active {
-      background-color: #26404f;
+      background-color: var(--theme-hover-color);
     }
   }
 }

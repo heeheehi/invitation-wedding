@@ -99,7 +99,7 @@
       line-height: 1.5;
       .relation {
         font-size: 0.5rem;
-        font-weight: 300;
+        font-weight: 400;
         color: var(--muted-color);
       }
       .name {
@@ -126,7 +126,7 @@
     width: 1.6rem;
     height: 1.6rem;
     border-radius: 50%;
-    background-color: #8fa3ae;
+    background-color: var(--icon-bg-color);
     color: var(--white-color);
     transition: background-color 0.2s ease;
 
@@ -152,7 +152,7 @@
     background: none;
     font-family: inherit;
     font-size: 0.65rem;
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: 0.01em;
     color: var(--dark-color);
     text-align: right;

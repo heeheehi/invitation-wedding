@@ -14,10 +14,11 @@ export const Information1 = () => {
   return (
     <>
       <h2 className="english">Information</h2>
+      <div className="section-title">안내</div>
       <div className="info-card">
         <div className="label">식사 안내</div>
         <div className="content">
-          식사시간: 12시 ~ 14시
+          식사시간: <b>12시 ~ 14시</b>
           <br />
           먼저 식사하실 분은 축의대에서 안내 받으시기 바랍니다.
         </div>

@@ -35,15 +35,12 @@ export const Location = () => {
           <div className="content">
             * 지하철
             <br />
-            <span className="subway-line line-2" aria-label="2호선">
-              2
-            </span>
-            <span className="subway-line line-4" aria-label="4호선">
-              4
-            </span>
             <b>사당역 14번출구</b> 도보 10분
-            <br />
-            <br />* 버스
+            <div className="subway-lines">
+              <span className="subway-line line-2">2호선</span>
+              <span className="subway-line line-4">4호선</span>
+            </div>
+            * 버스
             <br />→ <b>방배동래미안타워 정류장</b> 하차 도보 3분
             <br />→ <b>대항병원 정류장</b> 하차 도보 3분
           </div>

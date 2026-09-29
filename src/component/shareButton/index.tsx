@@ -2,8 +2,6 @@ import {
   BRIDE_FULLNAME,
   GROOM_FULLNAME,
   LOCATION,
-  SHARE_ADDRESS,
-  SHARE_ADDRESS_TITLE,
   WEDDING_DATE,
   WEDDING_DATE_FORMAT,
 } from "../../const"
@@ -39,48 +37,28 @@ export const ShareButton = () => {
             return
           }
 
-          // 카카오톡 공유 전송 (위치 기반 템플릿 사용)
+          // 초대장 페이지 주소 (예: https://heeheehi.github.io/invitation-wedding/)
+          const pageUrl = new URL(baseUrl, window.location.origin).href
+
+          // 카카오톡 공유 전송 (피드 템플릿: 카드와 버튼 모두 초대장 페이지로 연결)
           kakao.Share.sendDefault({
-            objectType: "location",
-            address: SHARE_ADDRESS,
-            addressTitle: SHARE_ADDRESS_TITLE,
+            objectType: "feed",
             content: {
               title: `${GROOM_FULLNAME} ❤️ ${BRIDE_FULLNAME}의 결혼식에 초대합니다.`,
               description:
                 WEDDING_DATE.format(WEDDING_DATE_FORMAT) + "\n" + LOCATION,
-              imageUrl:
-                window.location.protocol +
-                "//" +
-                window.location.host +
-                baseUrl +
-                "/preview_image.jpg",
+              imageUrl: pageUrl + "preview_image.jpg",
               link: {
-                mobileWebUrl:
-                  window.location.protocol +
-                  "//" +
-                  window.location.host +
-                  baseUrl,
-                webUrl:
-                  window.location.protocol +
-                  "//" +
-                  window.location.host +
-                  baseUrl,
+                mobileWebUrl: pageUrl,
+                webUrl: pageUrl,
               },
             },
             buttons: [
               {
                 title: "초대장 보기",
                 link: {
-                  mobileWebUrl:
-                    window.location.protocol +
-                    "//" +
-                    window.location.host +
-                    baseUrl,
-                  webUrl:
-                    window.location.protocol +
-                    "//" +
-                    window.location.host +
-                    baseUrl,
+                  mobileWebUrl: pageUrl,
+                  webUrl: pageUrl,
                 },
               },
             ],

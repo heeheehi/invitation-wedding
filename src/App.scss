@@ -114,6 +114,10 @@ body {
     overflow-y: hidden;
   }
 
+  // 한글이 글자 단위로 끊겨 '다.'만 다음 줄로 넘어가지 않도록 어절 단위로 줄바꿈합니다.
+  word-break: keep-all;
+  overflow-wrap: break-word;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -209,13 +213,13 @@ body {
 
 // 각 섹션 머리. 골드 필기체 영문 라벨 + 초록 국문 제목 두 줄로 섹션을 확실히 나눕니다.
 h2 {
-  font-size: 1.5rem;
+  font-size: 1.73rem;
   color: var(--theme-color);
   font-weight: normal;
   &.english {
     font-family: "Allura", cursive;
     font-weight: 400;
-    font-size: 1.15rem;
+    font-size: 1.46rem;
     line-height: 1.1;
     letter-spacing: 0.02em;
     color: var(--accent-color);
@@ -225,7 +229,7 @@ h2 {
 
 .section-title {
   margin-top: 0.15rem;
-  font-size: 1rem;
+  font-size: 1.32rem;
   font-weight: 500;
   letter-spacing: 0.04em;
   color: var(--theme-color);

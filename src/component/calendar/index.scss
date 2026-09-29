@@ -2,7 +2,7 @@
   // 예식 일시 한 줄. 달력 위에 조용히 얹히는 캡션입니다.
   .wedding-datetime {
     margin-top: 1.3rem;
-    font-size: 0.625rem;
+    font-size: 0.88rem;
     font-weight: 400;
     letter-spacing: 0.06em;
     color: var(--muted-color);
@@ -18,7 +18,7 @@
     margin: 1.5rem auto 0;
     gap: 0.65rem 0;
 
-    font-size: 0.65rem;
+    font-size: 0.91rem;
     font-weight: 400;
     color: var(--body-color);
 
@@ -71,14 +71,14 @@
       }
       .count {
         font-weight: 400;
-        font-size: 0.95rem;
+        font-size: 1.27rem;
         letter-spacing: 0.02em;
         color: var(--strong-color);
       }
       .unit {
         font-family: "Cormorant Garamond", serif;
         font-weight: 400;
-        font-size: 0.5rem;
+        font-size: 0.7rem;
         letter-spacing: 0.18em;
         color: var(--muted-color);
       }
@@ -86,7 +86,7 @@
 
     .message {
       margin-top: 1.6rem;
-      font-size: 0.65rem;
+      font-size: 0.91rem;
       font-weight: 400;
       color: var(--body-color);
       .d-day {

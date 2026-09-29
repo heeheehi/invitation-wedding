@@ -1,12 +1,12 @@
 .location {
   .addr {
     margin: 1.3rem 0 1.4rem;
-    font-size: 0.75rem;
+    font-size: 1.05rem;
     font-weight: 500;
     line-height: 1.7;
     color: var(--strong-color);
     .detail {
-      font-size: 0.625rem;
+      font-size: 0.88rem;
       font-weight: 400;
       color: var(--body-color);
     }
@@ -31,7 +31,7 @@
         color: var(--white-color);
         padding: 0.5rem;
         text-align: center;
-        font-size: 0.8rem;
+        font-size: 1.11rem;
         svg {
           display: inline;
           width: 0.8rem;
@@ -79,7 +79,7 @@
       border-right: 1px solid var(--light-grey-color);
       position: relative;
       z-index: 3;
-      font-size: 0.625rem;
+      font-size: 0.88rem;
       font-weight: 400;
       color: var(--body-color);
 
@@ -107,7 +107,7 @@
     padding: 0.05rem 0.45rem;
     border: 1px solid currentColor;
     border-radius: 999px;
-    font-size: 0.5rem;
+    font-size: 0.7rem;
     font-weight: 400;
     line-height: 1.6;
     letter-spacing: 0.02em;
@@ -144,7 +144,7 @@
     }
 
     .heading {
-      font-size: 0.65rem;
+      font-size: 0.91rem;
       font-weight: 500;
       letter-spacing: 0.12em;
       color: var(--strong-color);
@@ -156,7 +156,7 @@
     }
 
     .content {
-      font-size: 0.68rem;
+      font-size: 0.95rem;
       font-weight: 400;
       line-height: 1.8;
       color: var(--body-color);

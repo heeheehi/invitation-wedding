@@ -149,7 +149,6 @@ export const Invitation = () => {
         <div className="footer">
           <Button
             buttonStyle="style2"
-            className="text-dark-color"
             onClick={() => contactModalState[1](false)}
           >
             닫기

@@ -117,7 +117,6 @@ export const AttendanceInfo = () => {
           </Button>
           <Button
             buttonStyle="style2"
-            className="text-dark-color"
             onClick={() => {
               attendanceInfoModalState[1](false)
             }}
@@ -351,7 +350,6 @@ const AttendanceFormModal = ({ onClose }: { onClose: () => void }) => {
         <Button
           buttonStyle="style2"
           type="button"
-          className="text-dark-color"
           onClick={onClose}
         >
           닫기

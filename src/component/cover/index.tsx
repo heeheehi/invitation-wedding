@@ -20,7 +20,8 @@ export const Cover = () => {
     <LazyDiv className="card cover">
       {/* 전면 커버 이미지 */}
       <div className="image-wrapper">
-        <img src={COVER_IMAGE} alt="신랑 신부" />
+        {/* 첫 화면에 보이는 사진이므로 다른 이미지보다 먼저 받습니다 */}
+        <img src={COVER_IMAGE} alt="신랑 신부" fetchPriority="high" />
         {/* 사진 하단 경계에 걸치는 실링 왁스 엠블럼 */}
         <img className="wax-seal" src={WAX_SEAL_IMAGE} alt="" />
       </div>

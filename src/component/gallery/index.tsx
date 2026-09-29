@@ -10,7 +10,14 @@ import { GALLERY_IMAGES } from "../../images"
  */
 const CAROUSEL_ITEMS = GALLERY_IMAGES.map((item, idx) => (
   <div className="carousel-item" key={idx}>
-    <img src={item} draggable={false} alt={`${idx}`} />
+    {/* 화면에 가까워질 때 받아서 커버 사진 로딩을 방해하지 않게 합니다 */}
+    <img
+      src={item}
+      draggable={false}
+      alt={`${idx}`}
+      loading="lazy"
+      decoding="async"
+    />
   </div>
 ))
 
@@ -418,6 +425,8 @@ export const Gallery = () => {
                 src={image}
                 alt={`${idx}`}
                 draggable={false}
+                loading="lazy"
+                decoding="async"
                 onClick={() => {
                   if (statusRef.current === "stationary") {
                     if (idx !== slideRef.current) {
@@ -432,10 +441,7 @@ export const Gallery = () => {
           <div className="break" />
         </div>
         <div className="footer">
-          <Button
-            buttonStyle="style2"
-            onClick={() => modalState[1](false)}
-          >
+          <Button buttonStyle="style2" onClick={() => modalState[1](false)}>
             닫기
           </Button>
         </div>

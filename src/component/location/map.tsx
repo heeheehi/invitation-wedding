@@ -64,7 +64,14 @@ const NaverMap = () => {
         SUBWAY_EXIT_POSITION[0],
       )
 
-      const map = new naver.maps.Map(ref.current, { center: hall, zoom: 16 })
+      // 웨딩홀과 지하철 출구의 가운데를 중심으로, 출구 번호가 보이는 배율(16)로 엽니다.
+      const map = new naver.maps.Map(ref.current, {
+        center: new naver.maps.LatLng(
+          (hall.lat() + subwayExit.lat()) / 2,
+          (hall.lng() + subwayExit.lng()) / 2,
+        ),
+        zoom: 16,
+      })
 
       // 웨딩홀 마커
       new naver.maps.Marker({ position: hall, map })
@@ -77,14 +84,6 @@ const NaverMap = () => {
           content: `<div class="subway-exit-label">${SUBWAY_EXIT_NAME}</div>`,
           anchor: new naver.maps.Point(0, 0),
         },
-      })
-
-      // 웨딩홀과 지하철 출구가 한 화면에 들어오도록 맞춥니다.
-      map.fitBounds(new naver.maps.LatLngBounds(subwayExit, hall), {
-        top: 50,
-        right: 50,
-        bottom: 50,
-        left: 80,
       })
 
       return () => {

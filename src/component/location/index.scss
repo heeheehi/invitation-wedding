@@ -71,7 +71,8 @@
 
     // 지도 위 지하철 출구 이름표 (네이버 지도 커스텀 마커)
     .subway-exit-label {
-      transform: translate(-50%, -140%);
+      // 지도의 출구 번호 동그라미를 가리지 않도록 오른쪽 위로 비켜 둡니다.
+      transform: translate(-15%, -160%);
       padding: 0.2rem 0.5rem;
       border: 1px solid var(--theme-color);
       border-radius: 999px;

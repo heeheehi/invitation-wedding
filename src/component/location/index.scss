@@ -97,6 +97,29 @@
     }
   }
 
+  // 서울 지하철 노선 배지. 공식 노선색 원형에 노선 번호를 표시합니다.
+  .subway-line {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.1em;
+    height: 1.1em;
+    margin-right: 0.25em;
+    border-radius: 50%;
+    font-size: 0.85em;
+    font-weight: 500;
+    line-height: 1;
+    color: #fff;
+    vertical-align: -0.15em;
+
+    &.line-2 {
+      background-color: #00a84d;
+    }
+    &.line-4 {
+      background-color: #00a5de;
+    }
+  }
+
   // 교통편 안내. 아이콘 열 + 제목/내용을 왼쪽 정렬로 나란히 둡니다.
   .location-info {
     display: grid;

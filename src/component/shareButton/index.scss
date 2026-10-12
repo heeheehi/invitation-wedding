@@ -12,11 +12,11 @@
     gap: 0.7rem;
 
     .closing-label {
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       font-weight: 300;
-      letter-spacing: 0.3em;
+      letter-spacing: 0.16em;
       // 자간이 오른쪽에만 붙어 생기는 쏠림을 상쇄합니다.
-      text-indent: 0.3em;
+      text-indent: 0.16em;
       color: var(--on-theme-muted-color);
     }
 
@@ -24,9 +24,10 @@
       display: flex;
       align-items: center;
       gap: 0.7rem;
-      font-size: 1.16rem;
+      font-size: 1.3rem;
       font-weight: 300;
-      letter-spacing: 0.05em;
+      line-height: 1.4;
+      letter-spacing: 0.1em;
       color: var(--white-color);
 
       > span {
@@ -51,8 +52,8 @@
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-    padding: 0.6rem 1.1rem;
-    border-radius: 0.5rem;
+    padding: 0.65rem 1.2rem;
+    border-radius: 0.35rem;
     background-color: #fee500;
     color: #191919;
     transition: background-color 0.2s ease;

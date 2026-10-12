@@ -4,28 +4,29 @@ button.button {
   position: relative;
   z-index: 3;
   font-size: 0.88rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
   transition:
     background-color 0.2s ease,
     color 0.2s ease;
 
-  // 기본 버튼: 네이비 외곽선 + 완만한 라운드. 눌리면 색이 반전됩니다.
+  // 기본 버튼: 옅은 초록 가는 외곽선. 눌리면 바탕만 살짝 채워집니다.
   &.button-style-1 {
-    width: 250px;
+    width: 13rem;
     max-width: 100%;
     margin: 0 auto;
-    min-height: 2.2rem;
-    padding: 0.6rem 0.7rem;
+    min-height: 2.8rem;
+    padding: 0.7rem 1rem;
     background-color: var(--white-color);
-    border: 1px solid var(--alt-color);
-    border-radius: 0.5rem;
-    color: var(--alt-color);
+    border: 1px solid var(--button-border-color);
+    border-radius: 0.35rem;
+    color: var(--theme-color);
 
     &:hover,
     &:active {
-      background-color: var(--alt-color);
-      color: var(--white-color);
+      background-color: var(--alt-bg-color);
+      border-color: var(--theme-color);
     }
   }
 
@@ -34,8 +35,9 @@ button.button {
     background-color: var(--alt-color);
     color: var(--white-color);
     border: 1px solid var(--alt-color);
-    border-radius: 0.5rem;
-    padding: 0.6rem 0.8rem;
+    border-radius: 0.35rem;
+    min-height: 2.8rem;
+    padding: 0.7rem 1rem;
 
     &:hover,
     &:active {

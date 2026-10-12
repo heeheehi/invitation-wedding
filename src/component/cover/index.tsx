@@ -28,8 +28,7 @@ export const Cover = () => {
       {/* 이름 및 예식 정보 */}
       <div className="cover-caption">
         <div className="names">
-          <div className="name">{GROOM_FULLNAME}</div>
-          <div className="name">{BRIDE_FULLNAME}</div>
+          <div className="name">{GROOM_FULLNAME} {BRIDE_FULLNAME}</div>
         </div>
         {/* 예식 정보 (포맷팅된 날짜 및 장소) */}
         <div className="info">{WEDDING_DATE.format(WEDDING_DATE_FORMAT)}</div>

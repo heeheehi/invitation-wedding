@@ -16,7 +16,9 @@ $card-max-width: 430px;
   // 섹션 좌우/세로 여백. 커버 사진의 풀블리드와 구분선 들여쓰기가 모두 이 값을
   // 되짚어 쓰기 때문에 컴포넌트에서도 보이도록 CSS 변수로 둡니다.
   --section-inset: 1.15rem;
-  --section-gap: 3.2rem;
+  --section-gap: 4rem;
+  // 섹션 제목(국문) 아래부터 첫 내용까지의 간격. 제목과 본문을 확실히 떼어 놓습니다.
+  --title-gap: 2.2rem;
 
   // 색 설계 원칙
   // - 사진의 주조색(짙은 숲 초록 · 올리브/세이지 · 따뜻한 베이지)에서 색을 뽑았습니다.
@@ -43,10 +45,12 @@ $card-max-width: 430px;
   --light-color: #fdfcf8; // 모달 배경
   --white-color: #ffffff;
   --red-color: #b44d4d; // 공휴일 표시(기능색)
+  --button-border-color: #a9b19f; // 외곽선 버튼 테두리 (포인트 초록을 옅게)
 
   font-family: "Noto Sans KR", sans-serif;
   // 카드 폭에 비례해 글자도 같이 줄어듭니다($card-max-width의 4% = 20px에서 상한).
-  font-size: min(4vw, 20px);
+  // 여기에 기기 글자 크기 설정 배율(src/fontScale.ts)을 곱합니다.
+  font-size: calc(min(4vw, 20px) * var(--user-font-scale, 1));
 }
 
 @media print {
@@ -113,6 +117,9 @@ body {
   &.modal-open {
     overflow-y: hidden;
   }
+
+  // 글자가 커진 만큼 기본 행간도 넉넉히 둡니다. 각 요소는 필요할 때만 덮어씁니다.
+  line-height: 1.6;
 
   // 한글이 글자 단위로 끊겨 '다.'만 다음 줄로 넘어가지 않도록 어절 단위로 줄바꿈합니다.
   word-break: keep-all;
@@ -212,6 +219,7 @@ body {
 }
 
 // 각 섹션 머리. 골드 필기체 영문 라벨 + 초록 국문 제목 두 줄로 섹션을 확실히 나눕니다.
+// 필기체는 같은 크기에서도 한글보다 작아 보여 한 단계 크게 잡습니다.
 h2 {
   font-size: 1.73rem;
   color: var(--theme-color);
@@ -219,20 +227,32 @@ h2 {
   &.english {
     font-family: "Allura", cursive;
     font-weight: 400;
-    font-size: 1.46rem;
-    line-height: 1.1;
-    letter-spacing: 0.02em;
+    font-size: 1.9rem;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
     color: var(--accent-color);
     margin: 0;
   }
 }
 
 .section-title {
-  margin-top: 0.15rem;
-  font-size: 1.32rem;
+  margin: 0.1rem 0 var(--title-gap);
+  font-size: 1.4rem;
   font-weight: 500;
-  letter-spacing: 0.04em;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
   color: var(--theme-color);
+
+  // 제목 아래 짧은 골드 선으로 머리와 본문의 경계를 한 번 더 긋습니다.
+  &::after {
+    content: "";
+    display: block;
+    width: 1.4rem;
+    height: 1px;
+    margin: 0.9rem auto 0;
+    background-color: var(--accent-color);
+    opacity: 0.6;
+  }
 }
 
 // 본문 속 강조(시간·장소·출구 등)는 확실한 굵기와 진한 색으로 둡니다.

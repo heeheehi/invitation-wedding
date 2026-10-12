@@ -1,18 +1,26 @@
 .information {
   // 각 안내를 옅은 테두리의 둥근 카드 한 장씩으로 담습니다.
+  // 각 안내는 옅은 바탕의 카드 한 장. 테두리 대신 면으로 구분해 차분하게 둡니다.
   .info-card {
-    margin-top: 1.5rem;
-    padding: 1rem 0.9rem;
-    border: 1px solid var(--light-grey-color);
-    border-radius: 0.7rem;
+    padding: 1.4rem 1.3rem;
+    background-color: var(--alt-bg-color);
+    border-radius: 0.6rem;
     text-align: left;
 
+    & + .info-card {
+      margin-top: 0.9rem;
+    }
+
+    // 카드 제목: 본문보다 크고 굵게, 아래 가는 선으로 본문과 나눕니다.
     .label {
-      font-size: 0.84rem;
-      font-weight: 400;
-      letter-spacing: 0.12em;
-      color: var(--strong-color);
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.9rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--dark-grey-color);
+      font-size: 1.02rem;
+      font-weight: 500;
+      line-height: 1.4;
+      letter-spacing: 0.04em;
+      color: var(--theme-color);
     }
     .row {
       display: flex;
@@ -20,21 +28,23 @@
     }
   }
   .content {
-    line-height: 1.9;
-    font-size: 0.95rem;
+    line-height: 1.75;
+    font-size: 0.93rem;
     font-weight: 400;
     color: var(--body-color);
   }
 }
 
 .donation-modal {
-  width: 22rem;
+  width: 20rem;
 
   .header {
     .title {
       text-align: center;
-      font-size: 1.22rem;
-      font-weight: 400;
+      font-size: 1.2rem;
+      font-weight: 500;
+      line-height: 1.4;
+      letter-spacing: 0.04em;
       color: var(--theme-color);
       padding-bottom: 0.8rem;
       border-bottom: 1px solid var(--dark-grey-color);
@@ -51,15 +61,17 @@
 }
 
 .attendance-form-modal {
-  width: 22rem;
-
+  width: 20rem;
   .form {
     .header {
       .title {
         text-align: center;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
+        font-weight: 500;
+        line-height: 1.4;
+        letter-spacing: 0.04em;
         color: var(--theme-color);
-        padding-bottom: 1rem;
+        padding-bottom: 0.8rem;
         border-bottom: 1px solid var(--dark-grey-color);
       }
     }
@@ -134,24 +146,27 @@
 }
 
 .attendance-info-modal {
-  width: 22rem;
+  width: 20rem;
 
   .header {
     .title {
       text-align: center;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
+      font-weight: 500;
+      line-height: 1.4;
+      letter-spacing: 0.04em;
       color: var(--theme-color);
-      padding-bottom: 1rem;
+      padding-bottom: 0.8rem;
       border-bottom: 1px solid var(--dark-grey-color);
     }
   }
 
   .content {
-    padding: 1.5rem 1rem 1.5rem 1rem;
+    padding: 1rem;
     .info-message {
       text-align: center;
-      line-height: 1.5rem;
-      padding-bottom: 1.5rem;
+      line-height: 1.5;
+      padding-bottom: 1rem;
       border-bottom: 1px dotted var(--dark-grey-color);
     }
     .wedding-info {

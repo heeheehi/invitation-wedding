@@ -1,5 +1,6 @@
 // 카드 안쪽 폭(430px - 좌우 여백)에 들어가는 크기. 이보다 크면 캐러셀이 카드를 넘칩니다.
-$gallery-width: 18rem;
+// 기기 글자 크기를 키우면 rem이 커지므로 카드 안쪽 폭(100cqw)을 넘지 않게 합니다.
+$gallery-width: min(18rem, 100cqw);
 $gallery-height: 25.7rem;
 $transition-duration: 0.3s;
 
@@ -13,6 +14,9 @@ $transition-duration: 0.3s;
 }
 
 .gallery {
+  // 위 $gallery-width의 cqw 기준을 이 섹션의 안쪽 폭으로 잡습니다.
+  container-type: inline-size;
+
   .carousel-wrapper {
     display: flex;
     flex-direction: column;
@@ -129,7 +133,10 @@ $transition-duration: 0.3s;
   .header {
     .title {
       text-align: center;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
+      font-weight: 500;
+      line-height: 1.4;
+      letter-spacing: 0.04em;
       color: var(--theme-color);
       padding-bottom: 1rem;
     }

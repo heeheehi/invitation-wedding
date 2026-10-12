@@ -37,9 +37,10 @@
   .cover-caption {
     // 엠블럼이 절반쯤 걸쳐 내려오는 만큼 위쪽을 비워 둡니다.
     // 좌우·아래 여백은 카드가 이미 갖고 있어 여기서는 위만 잡습니다.
-    padding-top: 4.6rem;
+    padding-top: 4.2rem;
   }
 
+  // 이름은 가볍고 넓은 자간으로 크게, 예식 정보는 작게 두어 위계를 분명히 합니다.
   .names {
     .name {
       font-size: 1.73rem;
@@ -51,14 +52,25 @@
   }
 
   .info {
-    margin-top: 0.45rem;
-    font-size: 1.05rem;
+    margin-top: 0.2rem;
+    font-size: 0.95rem;
     font-weight: 400;
-    letter-spacing: 0.01em;
-    color: var(--body-color);
+    line-height: 1.7;
+    letter-spacing: 0.04em;
+    color: var(--muted-color);
+  }
 
-    &:first-of-type {
-      margin-top: 1.7rem;
+  // 이름과 예식 정보 사이를 짧은 골드 선으로 나눕니다.
+  .names + .info {
+    margin-top: 1.3rem;
+    &::before {
+      content: "";
+      display: block;
+      width: 1.4rem;
+      height: 1px;
+      margin-bottom: 1.3rem;
+      background-color: var(--accent-color);
+      opacity: 0.6;
     }
   }
 }

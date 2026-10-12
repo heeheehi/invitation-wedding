@@ -1,14 +1,25 @@
+// 교통편 카드는 지도 카드에 이어지는 내용이라 구분선 없이 바로 붙입니다.
+.background .card-view .card-group .card.location + .card.location {
+  padding-top: 2.6rem;
+  &::before {
+    display: none;
+  }
+}
+
 .location {
   .addr {
-    margin: 1.3rem 0 1.4rem;
-    font-size: 1.05rem;
+    margin: 0 0 1.6rem;
+    font-size: 1.1rem;
     font-weight: 500;
-    line-height: 1.7;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
     color: var(--strong-color);
     .detail {
+      margin-top: 0.35rem;
       font-size: 0.88rem;
       font-weight: 400;
-      color: var(--body-color);
+      letter-spacing: 0.01em;
+      color: var(--muted-color);
     }
   }
 
@@ -96,9 +107,10 @@
 
   .navigation {
     display: flex;
-    padding: 0.7rem;
+    padding: 0.85rem 0.5rem;
     background-color: var(--alt-bg-color);
     > button {
+      line-height: 1.4;
       flex: 1.5;
       border-right: 1px solid var(--light-grey-color);
       position: relative;
@@ -125,7 +137,7 @@
   .subway-lines {
     display: flex;
     gap: 0.3rem;
-    margin: 0.3rem 0 0.9rem;
+    margin: 0 0 0.35rem;
   }
   .subway-line {
     padding: 0.05rem 0.45rem;
@@ -149,8 +161,15 @@
     display: grid;
     grid-template-columns: 1.6rem 1fr;
     text-align: left;
-    row-gap: 0.9rem;
-    margin: 1.5rem 0 0;
+    row-gap: 0.7rem;
+    margin: 0;
+
+    // 교통편 블록 사이는 블록 안 간격보다 넉넉히 둡니다.
+    & + .location-info {
+      margin-top: 2.4rem;
+      padding-top: 2.4rem;
+      border-top: 1px solid var(--light-grey-color);
+    }
 
     > * {
       align-self: center;
@@ -160,18 +179,33 @@
       display: flex;
       justify-content: flex-start;
       .transportation-icon {
-        width: 0.85rem;
-        height: 0.85rem;
+        width: 1rem;
+        height: 1rem;
         fill: var(--theme-color);
-        opacity: 0.55;
       }
     }
 
+    // 교통편 제목: 본문보다 크고 굵게, 포인트 색으로 둡니다.
     .heading {
-      font-size: 0.91rem;
+      font-size: 1.08rem;
       font-weight: 500;
-      letter-spacing: 0.12em;
-      color: var(--strong-color);
+      line-height: 1.4;
+      letter-spacing: 0.04em;
+      color: var(--theme-color);
+    }
+
+    // 지하철·버스·주차 같은 소제목. 작은 골드 글씨로 본문 앞에 붙입니다.
+    .sub-heading {
+      margin: 1.1rem 0 0.2rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      line-height: 1.5;
+      letter-spacing: 0.08em;
+      color: var(--accent-color);
+
+      &:first-child {
+        margin-top: 0;
+      }
     }
 
     // 장소명·출구는 굵게 하지 않고 살짝만 진하게 둡니다.
@@ -180,9 +214,9 @@
     }
 
     .content {
-      font-size: 0.95rem;
+      font-size: 0.93rem;
       font-weight: 400;
-      line-height: 1.8;
+      line-height: 1.75;
       color: var(--body-color);
     }
   }

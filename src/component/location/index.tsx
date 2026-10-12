@@ -34,26 +34,26 @@ export const Location = () => {
           <div className="heading">대중교통</div>
           <div />
           <div className="content">
-            * 지하철
-            <br />
-            <b>사당역 14번출구</b> 도보 10분
+            {/* 지하철 */}
+            <div className="sub-heading">지하철</div>
             <div className="subway-lines">
               <span className="subway-line line-2">2호선</span>
               <span className="subway-line line-4">4호선</span>
             </div>
-            * 버스
-            <br />→ <b>방배동래미안타워 정류장</b> 하차 도보 3분
-            <br />→ <b>대항병원 정류장</b> 하차 도보 3분
+            <b>사당역 14번출구</b> 도보 10분
+            {/* 버스 */}
+            <div className="sub-heading">버스</div>
+            <b>방배동래미안타워 정류장</b> 하차 도보 3분
+            <br />
+            <b>대항병원 정류장</b> 하차 도보 3분
+            {SHOW_CHARTER_BUS && (
+              <>
+                {/* 단체 대절 버스 */}
+                <div className="sub-heading">단체 대절 버스</div>
+                구미역 7시 출발
+              </>
+            )}
           </div>
-          {SHOW_CHARTER_BUS && (
-            <>
-              <div />
-              <div className="content">
-                * 단체 대절 버스 이용 시
-                <br />- 구미역 7시 출발
-              </div>
-            </>
-          )}
         </div>
 
         {/* 자가용 안내 */}
@@ -64,14 +64,13 @@ export const Location = () => {
           <div className="heading">자가용</div>
           <div />
           <div className="content">
-            네이버 지도, 카카오 네비, 티맵 등 이용
+            내비게이션에서 <b>세인트메리스 강남</b> 검색
+            {/* 주차 */}
+            <div className="sub-heading">주차</div>
+            3시간 무료 주차 · 무료 발렛 제공
             <br />
-            <b>세인트메리스 강남</b> 검색
-            <br />- 3시간 무료 주차 가능. 무료 발렛 제공
-            <br />
-            (주차장 이용 시 웨딩홀과 바로 연결)
+            주차장에서 웨딩홀로 바로 연결됩니다.
           </div>
-          <div />
         </div>
       </LazyDiv>
     </>

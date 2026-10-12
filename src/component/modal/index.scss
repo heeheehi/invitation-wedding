@@ -33,6 +33,8 @@
     // 본문의 둥근 카드와 같은 곡률로 맞춥니다.
     border-radius: 0.7rem;
     overflow: hidden;
+    // 기기 글자 크기를 키우면 rem 폭이 화면보다 커질 수 있어 화면 안으로 제한합니다.
+    max-width: calc(100vw - 2rem);
 
     .close-button-wrapper {
       padding: 0 0.5rem;

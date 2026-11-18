@@ -26,11 +26,21 @@ $transition-duration: 0.3s;
       overflow: hidden;
       position: relative;
       z-index: 3;
+      // iOS Safari: 캐러셀을 항상 별도 레이어로 유지해
+      // 슬라이드가 움직일 때 페이지 전체가 다시 그려지며 깜빡이는 것을 막습니다.
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
 
       .carousel-list {
         display: flex;
         width: fit-content;
         justify-content: center;
+        // iOS Safari: 정지(transform 없음) ↔ 드래그/애니메이션(transform 있음)이 바뀔 때마다
+        // 합성 레이어가 생겼다 사라지며 화면 전체가 깜빡입니다.
+        // will-change로 레이어를 미리 고정해 두어 상태가 바뀌어도 레이어가 유지되게 합니다.
+        will-change: transform;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
 
         &.transitioning {
           transition: $transition-duration ease-out;

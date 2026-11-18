@@ -19,9 +19,17 @@ export const Cover = () => {
   return (
     <LazyDiv className="card cover">
       {/* 전면 커버 이미지 */}
-      <div className="image-wrapper">
+      {/* 우클릭(데스크톱) 메뉴를 막아 사진 저장/복사를 어렵게 합니다 */}
+      <div className="image-wrapper" onContextMenu={(e) => e.preventDefault()}>
         {/* 첫 화면에 보이는 사진이므로 다른 이미지보다 먼저 받습니다 */}
-        <img src={COVER_IMAGE} alt="신랑 신부" fetchPriority="high" />
+        {/* draggable=false: 사진을 끌어서 저장하는 것을 막습니다 */}
+        <img
+          className="cover-photo"
+          src={COVER_IMAGE}
+          alt="신랑 신부"
+          fetchPriority="high"
+          draggable={false}
+        />
         {/* 사진 하단 경계에 걸치는 실링 왁스 엠블럼 */}
         <img className="wax-seal" src={WAX_SEAL_IMAGE} alt="" />
       </div>

@@ -7,19 +7,52 @@ import { GALLERY_IMAGES } from "../../images"
 
 /**
  * 캐러셀 아이템 요소 생성
+ *
+ * key를 사진 번호(idx)로 고정하고, 화면에는 항상 "하나의 배열"로 그립니다.
+ * 상태(정지/드래그/이동)가 바뀌어도 React가 같은 <img>를 재사용하므로
+ * iOS Safari에서 사진이 지워졌다 다시 그려지며 화면이 깜빡이는 것을 막습니다.
+ *
+ * loading="lazy" / decoding="async"는 쓰지 않습니다.
+ * iOS에서는 새로 붙은 이미지가 한 프레임 비어 보였다가 그려져 깜빡임의 원인이 됩니다.
  */
 const CAROUSEL_ITEMS = GALLERY_IMAGES.map((item, idx) => (
   <div className="carousel-item" key={idx}>
-    {/* 화면에 가까워질 때 받아서 커버 사진 로딩을 방해하지 않게 합니다 */}
-    <img
-      src={item}
-      draggable={false}
-      alt={`${idx}`}
-      loading="lazy"
-      decoding="async"
-    />
+    <img src={item} draggable={false} alt={`${idx}`} />
   </div>
 ))
+
+const ITEM_COUNT = CAROUSEL_ITEMS.length
+
+/**
+ * 현재 상태에서 화면에 그려야 할 사진 번호 목록을 계산합니다.
+ * - 정지 상태: 현재 사진 1장
+ * - 드래그 중: [이전, 현재, 다음] 3장 (무한 캐러셀)
+ * - 버튼 이동: 출발 사진부터 도착 사진까지
+ */
+const getVisibleIndexes = (
+  status: Status,
+  slide: number,
+  moveOption: { srcIdx: number; dstIdx: number },
+): number[] => {
+  const range = (from: number, to: number) =>
+    Array.from({ length: to - from + 1 }, (_, i) => from + i)
+
+  switch (status) {
+    case "dragging":
+    case "dragEnding":
+      return [
+        (slide - 1 + ITEM_COUNT) % ITEM_COUNT,
+        slide,
+        (slide + 1) % ITEM_COUNT,
+      ]
+    case "moving-right":
+      return range(moveOption.srcIdx, moveOption.dstIdx)
+    case "moving-left":
+      return range(moveOption.dstIdx, moveOption.srcIdx)
+    default:
+      return [slide]
+  }
+}
 
 // 드래그 감도 설정
 const DRAG_SENSITIVITY = 15
@@ -343,22 +376,10 @@ export const Gallery = () => {
             }
           >
             <div className={transformClass} style={transformStyle}>
-              {/* 무한 캐러셀을 위한 슬라이드 구성 */}
-              {["dragging", "dragEnding"].includes(status) && [
-                ...(slide === 0
-                  ? [CAROUSEL_ITEMS[CAROUSEL_ITEMS.length - 1]]
-                  : []),
-                ...CAROUSEL_ITEMS.slice(slide === 0 ? 0 : slide - 1, slide + 2),
-                ...(slide === CAROUSEL_ITEMS.length - 1
-                  ? [CAROUSEL_ITEMS[0]]
-                  : []),
-              ]}
-              {status === "moving-right" &&
-                CAROUSEL_ITEMS.slice(moveOption.srcIdx, moveOption.dstIdx + 1)}
-              {status === "moving-left" &&
-                CAROUSEL_ITEMS.slice(moveOption.dstIdx, moveOption.srcIdx + 1)}
-              {["stationary", "clicked", "clickCanceled"].includes(status) &&
-                CAROUSEL_ITEMS[slide]}
+              {/* 무한 캐러셀을 위한 슬라이드 구성 (하나의 배열로 그려 <img>를 재사용) */}
+              {getVisibleIndexes(status, slide, moveOption).map(
+                (idx) => CAROUSEL_ITEMS[idx],
+              )}
             </div>
 
             {/* 좌우 화살표 컨트롤 */}

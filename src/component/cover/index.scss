@@ -17,6 +17,19 @@
       height: 100%;
       object-fit: cover;
     }
+
+    // 커버 사진 저장/복사 방지
+    // - touch-callout: iOS에서 길게 눌렀을 때 나오는 "사진 저장/복사" 메뉴를 막습니다.
+    // - user-select: 사진이 선택(복사)되지 않게 합니다.
+    // - pointer-events: 길게 누르기·우클릭이 사진이 아닌 감싸는 div에 걸리게 해
+    //   안드로이드의 이미지 메뉴도 뜨지 않게 합니다.
+    .cover-photo {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      user-select: none;
+      -webkit-user-drag: none;
+      pointer-events: none;
+    }
   }
 
   // 사진과 아래 여백의 경계에 절반씩 걸쳐지는 실링 왁스 엠블럼

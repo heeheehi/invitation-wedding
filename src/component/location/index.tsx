@@ -2,11 +2,11 @@ import { Map } from "./map"
 import CarIcon from "../../icons/car-icon.svg?react"
 import BusIcon from "../../icons/bus-icon.svg?react"
 import { LazyDiv } from "../lazyDiv"
-import { LOCATION, LOCATION_ADDRESS, SHOW_CHARTER_BUS } from "../../const"
+import { LOCATION, LOCATION_ADDRESS } from "../../const"
 
 /**
  * 오시는 길 정보를 표시하는 컴포넌트입니다.
- * 지도와 대중교통, 자가용 이용 방법을 안내합니다.
+ * 지도와 대중교통, 자가용, 대절버스 이용 방법을 안내합니다.
  *
  * @returns {JSX.Element} 오시는 길 섹션
  */
@@ -24,7 +24,7 @@ export const Location = () => {
         <Map />
       </LazyDiv>
 
-      {/* 대중교통 및 자가용 안내 섹션 */}
+      {/* 대중교통, 자가용, 대절버스 안내 섹션 */}
       <LazyDiv className="card location">
         {/* 대중교통 안내 */}
         <div className="location-info">
@@ -46,13 +46,6 @@ export const Location = () => {
             <b>방배동래미안타워 정류장</b> 하차 도보 3분
             <br />
             <b>대항병원 정류장</b> 하차 도보 3분
-            {SHOW_CHARTER_BUS && (
-              <>
-                {/* 단체 대절 버스 */}
-                <div className="sub-heading">단체 대절 버스</div>
-                구미역 7시 출발
-              </>
-            )}
           </div>
         </div>
 
@@ -70,6 +63,20 @@ export const Location = () => {
             3시간 무료 주차 · 무료 발렛 제공
             <br />
             주차장에서 웨딩홀로 바로 연결됩니다.
+          </div>
+        </div>
+
+        {/* 대절버스 안내 */}
+        <div className="location-info">
+          <div className="transportation-icon-wrapper">
+            <BusIcon className="transportation-icon" />
+          </div>
+          <div className="heading">대절버스</div>
+          <div />
+          <div className="content">
+            <b>구미 시청</b> 오전 7시 30분 출발
+            <br />
+            <b>신곡 버스 정류장</b> 오전 8시 출발
           </div>
         </div>
       </LazyDiv>

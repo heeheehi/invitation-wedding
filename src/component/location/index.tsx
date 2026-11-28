@@ -46,6 +46,9 @@ export const Location = () => {
             <b>방배동래미안타워 정류장</b> 하차 도보 3분
             <br />
             <b>대항병원 정류장</b> 하차 도보 3분
+            {/* 셔틀버스 */}
+            <div className="sub-heading">셔틀버스</div>
+            <b>사당역 ↔ 웨딩홀</b> 오전 10시 30분부터 운행
           </div>
         </div>
 
